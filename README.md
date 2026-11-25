@@ -88,8 +88,8 @@ sequenceDiagram
 ### 1. Clone, create virtual environment & install dependencies
 
 ```powershell
-git clone https://github.com/ananyaids1/truvex.2.git
-cd truvex.2
+git clone https://github.com/rounitraj7416/Truvex-1.1.git
+cd Truvex-1.1
 python -m venv .venv
 .\.venv\Scripts\pip.exe install -r backend\requirements.txt
 ```
