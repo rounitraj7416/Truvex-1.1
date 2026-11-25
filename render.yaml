@@ -20,7 +20,7 @@ services:
       - key: CUSTOMER_SESSION_EXPIRY_MINUTES
         value: "30"
       - key: AI_PROVIDER
-        value: mock
+        value: detectifai
       - key: DETECTIFAI_API_BASE_URL
         value: https://platform.detectif.ai
       - key: DETECTIFAI_API_KEY
