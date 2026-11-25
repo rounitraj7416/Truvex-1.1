@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register Company — The Trust Layer</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="/" class="brand">
+        <span class="brand-mark">TL</span>
+        <span>The Trust Layer</span>
+      </a>
+      <nav class="nav-links">
+        <a href="/verify.html" class="nav-link">Verify a Call</a>
+        <a href="/login.html" class="nav-link">Sign In</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container-narrow dash-enter">
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <h1 class="card-title">Company Registration</h1>
+          <p class="card-subtitle">
+            New companies start in <strong>PENDING</strong> status and must be approved by a platform administrator before authorizing employees or issuing Trust IDs.
+          </p>
+        </div>
+      </div>
+
+      <div id="register-error" class="alert alert-danger" hidden></div>
+
+      <form id="company-register-form">
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label" for="company-name">Company Name</label>
+            <input class="form-control" id="company-name" type="text" required minlength="2" placeholder="Acme Financial Group" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="business-email">Business Email</label>
+            <input class="form-control" id="business-email" type="email" required placeholder="security@acmefinancial.example" />
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label" for="company-phone">Official Phone Number</label>
+            <input class="form-control" id="company-phone" type="tel" required minlength="5" placeholder="+1-800-555-0190" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="company-industry">Industry</label>
+            <input class="form-control" id="company-industry" type="text" required minlength="2" placeholder="Financial Services" />
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="form-group">
+            <label class="form-label" for="registration-number">Business Registration Identifier</label>
+            <input class="form-control" id="registration-number" type="text" required minlength="2" placeholder="REG-2026-99102" />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="admin-full-name">Company Admin Full Name</label>
+            <input class="form-control" id="admin-full-name" type="text" placeholder="Jordan Taylor" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="company-password">Administrator Password</label>
+          <input class="form-control" id="company-password" type="password" required minlength="8" placeholder="Minimum 8 characters" />
+          <div class="form-hint">Hashed securely using Argon2id.</div>
+        </div>
+
+        <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">
+          <button type="submit" class="btn btn-primary" id="register-submit">Register Company</button>
+          <a href="/login.html" class="btn btn-secondary">Already registered? Sign In</a>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

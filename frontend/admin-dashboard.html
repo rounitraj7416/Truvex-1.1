@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Platform Admin Console — The Trust Layer</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="/" class="brand">
+        <span class="brand-mark">TL</span>
+        <span>The Trust Layer • Admin Console</span>
+      </a>
+      <nav class="nav-links">
+        <span class="nav-link" id="nav-user-label">Platform Admin</span>
+        <a href="/verify.html" class="nav-link">Public Verify</a>
+        <a href="#" class="nav-link" data-logout>Sign Out</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container dash-enter">
+    <section class="stats-grid">
+      <div class="stat-card"><div class="stat-label">Total Companies</div><div class="stat-value" id="stat-total-companies">0</div></div>
+      <div class="stat-card"><div class="stat-label">Pending Approval</div><div class="stat-value" id="stat-pending-companies">0</div></div>
+      <div class="stat-card"><div class="stat-label">Approved Companies</div><div class="stat-value" id="stat-verified-companies">0</div></div>
+      <div class="stat-card"><div class="stat-label">Registered Employees</div><div class="stat-value" id="stat-total-employees">0</div></div>
+      <div class="stat-card"><div class="stat-label">Issued Trust IDs</div><div class="stat-value" id="stat-issued-ids">0</div></div>
+      <div class="stat-card"><div class="stat-label">Active Sessions</div><div class="stat-value" id="stat-active-sessions">0</div></div>
+      <div class="stat-card"><div class="stat-label">Expired Sessions</div><div class="stat-value" id="stat-expired-sessions">0</div></div>
+      <div class="stat-card"><div class="stat-label">Suspicious Reports</div><div class="stat-value" id="stat-suspicious-reports">0</div></div>
+    </section>
+
+    <div class="tabs" role="tablist">
+      <button type="button" class="tab-btn active" data-tab="companies">Companies</button>
+      <button type="button" class="tab-btn" data-tab="employees">Employees</button>
+      <button type="button" class="tab-btn" data-tab="sessions">Trust ID Sessions</button>
+      <button type="button" class="tab-btn" data-tab="reports">Suspicious Reports</button>
+      <button type="button" class="tab-btn" data-tab="audit">Audit Log</button>
+    </div>
+
+    <!-- Companies Panel -->
+    <section class="card" data-tab-panel="companies">
+      <div class="card-header">
+        <h2 class="card-title">Company Verification Management</h2>
+        <select class="form-control" id="company-status-filter" style="width:auto;min-width:170px;">
+          <option value="">All Statuses</option>
+          <option value="PENDING">Pending</option>
+          <option value="VERIFIED">Verified</option>
+          <option value="REJECTED">Rejected</option>
+          <option value="SUSPENDED">Suspended</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Industry</th>
+              <th>Reg ID</th>
+              <th>Status</th>
+              <th>Registered</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-companies-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Employees Panel -->
+    <section class="card" data-tab-panel="employees" hidden>
+      <div class="card-header">
+        <h2 class="card-title">Platform Employee Directory</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Employee</th>
+              <th>Company</th>
+              <th>Code</th>
+              <th>Designation</th>
+              <th>Voice</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="admin-employees-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Sessions Panel -->
+    <section class="card" data-tab-panel="sessions" hidden>
+      <div class="card-header">
+        <h2 class="card-title">Communication Verification Sessions</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Employee</th>
+              <th>Purpose</th>
+              <th>Status</th>
+              <th>AI Provider</th>
+              <th>Issued At</th>
+              <th>Action / Flags</th>
+            </tr>
+          </thead>
+          <tbody id="admin-sessions-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Reports Panel -->
+    <section class="card" data-tab-panel="reports" hidden>
+      <div class="card-header">
+        <h2 class="card-title">Customer Suspicious Activity Reports</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Company / Employee</th>
+              <th>Purpose</th>
+              <th>Reason &amp; Details</th>
+              <th>Status</th>
+              <th>Reported At</th>
+              <th>Triage</th>
+            </tr>
+          </thead>
+          <tbody id="admin-reports-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Audit Log Panel -->
+    <section class="card" data-tab-panel="audit" hidden>
+      <div class="card-header">
+        <h2 class="card-title">Immutable Security Audit Log</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Timestamp</th>
+              <th>Action</th>
+              <th>Actor</th>
+              <th>Entity</th>
+              <th>Metadata</th>
+            </tr>
+          </thead>
+          <tbody id="admin-audit-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Reason Modal (Reject / Suspend) -->
+  <div class="modal-backdrop" id="reason-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="card-header">
+        <h2 class="card-title" id="reason-modal-title">Provide Reason</h2>
+        <button type="button" class="btn btn-secondary btn-sm" data-close-modal>Close</button>
+      </div>
+      <form id="reason-form">
+        <input type="hidden" id="reason-company-id" />
+        <input type="hidden" id="reason-action" />
+        <div class="form-group">
+          <label class="form-label" for="reason-input">Reason</label>
+          <textarea class="form-control" id="reason-input" rows="3" required minlength="3" maxlength="500"></textarea>
+        </div>
+        <button type="submit" class="btn btn-danger">Confirm</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Company History Modal -->
+  <div class="modal-backdrop" id="history-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="card-header">
+        <h2 class="card-title" id="history-modal-title">Company Approval History</h2>
+        <button type="button" class="btn btn-secondary btn-sm" data-close-modal>Close</button>
+      </div>
+      <div id="history-modal-body" class="kv-list"></div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/motion.js"></script>
+  <script src="/js/auth.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>

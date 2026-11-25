@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 320" width="100%" role="img" aria-labelledby="tl-banner-title tl-banner-desc">
+  <title id="tl-banner-title">The Trust Layer — Business Communication Verification</title>
+  <desc id="tl-banner-desc">Animated architectural clearinghouse header illustrating the five verification gates and single-use Trust ID issuance.</desc>
+  <style>
+    .bg { fill: #F4F5F2; }
+    .card { fill: #FFFFFF; stroke: #141A21; stroke-width: 1.5; }
+    .ledger { fill: #E9ECE6; }
+    .rule { stroke: #CFD6DE; stroke-width: 1; }
+    .title { font: 700 40px "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; fill: #141A21; letter-spacing: -1px; }
+    .subtitle { font: 400 16px "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; fill: #525B66; }
+    .kicker { font: 600 13px "IBM Plex Sans", "Segoe UI", system-ui, sans-serif; fill: #1649FF; }
+    .mono { font: 700 13px "IBM Plex Mono", Consolas, monospace; fill: #141A21; }
+    .mono-blue { font: 700 15px "IBM Plex Mono", Consolas, monospace; fill: #1649FF; }
+    .mono-green { font: 700 11px "IBM Plex Mono", Consolas, monospace; fill: #0D6E4E; }
+    .gate-box { fill: #F4F5F2; stroke: #CFD6DE; stroke-width: 1.2; }
+    .latch { fill: #0D6E4E; }
+    .wire { stroke: #1649FF; stroke-width: 2; stroke-dasharray: 6 6; fill: none; animation: wireFlow 1.8s linear infinite; }
+    .gate-1 { animation: gatePulse 5s ease-in-out infinite 0s; }
+    .gate-2 { animation: gatePulse 5s ease-in-out infinite 0.8s; }
+    .gate-3 { animation: gatePulse 5s ease-in-out infinite 1.6s; }
+    .gate-4 { animation: gatePulse 5s ease-in-out infinite 2.4s; }
+    .token-glow { animation: sealFlash 5s ease-in-out infinite; }
+    @keyframes wireFlow {
+      to { stroke-dashoffset: -24; }
+    }
+    @keyframes gatePulse {
+      0%, 100% { stroke: #CFD6DE; fill: #F4F5F2; }
+      20%, 60% { stroke: #0D6E4E; fill: #E7F5EF; }
+    }
+    @keyframes sealFlash {
+      0%, 60%, 100% { fill: #FFFFFF; stroke: #141A21; }
+      72%, 90% { fill: #E7F5EF; stroke: #0D6E4E; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wire, .gate-1, .gate-2, .gate-3, .gate-4, .token-glow { animation: none; }
+    }
+  </style>
+
+  <rect class="bg" width="1120" height="320" rx="4"/>
+  <rect x="0.75" y="0.75" width="1118.5" height="318.5" rx="4" fill="none" stroke="#141A21" stroke-width="1.5"/>
+
+  <line class="rule" x1="585" y1="0" x2="585" y2="320"/>
+  <line class="rule" x1="0" y1="252" x2="585" y2="252"/>
+
+  <rect x="40" y="34" width="36" height="36" rx="3" fill="#141A21"/>
+  <text x="58" y="57" text-anchor="middle" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-weight="700" font-size="14" fill="#F4F5F2">TL</text>
+  <text x="90" y="57" class="kicker">Track 03 · Pre-Call Business Communication Verification</text>
+
+  <text x="40" y="122" class="title">Never trust a business call</text>
+  <text x="40" y="168" class="title">blindly. Verify it independently.</text>
+  <text x="40" y="206" class="subtitle">Five independent trust gates + single-use cryptographic Trust IDs</text>
+  <text x="40" y="230" class="subtitle">powered by FastAPI, SQLite atomic locks, and DetectifAI Aletheia + Eidos.</text>
+
+  <rect x="40" y="272" width="128" height="26" rx="2" fill="#EBF0FF" stroke="#B8C9FF"/>
+  <text x="104" y="289" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="700" font-size="11" fill="#1649FF">5 TRUST LAYERS</text>
+
+  <rect x="180" y="272" width="136" height="26" rx="2" fill="#E7F5EF" stroke="#9FD4BF"/>
+  <text x="248" y="289" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="700" font-size="11" fill="#0D6E4E">1x ATOMIC REDEEM</text>
+
+  <rect x="328" y="272" width="150" height="26" rx="2" fill="#FFFFFF" stroke="#CFD6DE"/>
+  <text x="403" y="289" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-weight="700" font-size="11" fill="#141A21">0 RAW AUDIO STORED</text>
+
+  <rect class="ledger" x="586" y="1" width="533" height="318"/>
+  <rect class="card" x="616" y="26" width="474" height="268" rx="3"/>
+  <text x="634" y="52" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-weight="700" font-size="13" fill="#141A21">CLEARINGHOUSE VERIFICATION RACK</text>
+  <text x="1072" y="52" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="11" fill="#525B66">5m TTL</text>
+  <line class="rule" x1="634" y1="64" x2="1072" y2="64"/>
+
+  <rect class="gate-box gate-1" x="634" y="76" width="438" height="30" rx="2"/>
+  <rect class="latch" x="634" y="76" width="4" height="30"/>
+  <text x="650" y="95" class="mono">01  BUSINESS CHARTER</text>
+  <text x="1058" y="95" text-anchor="end" class="mono-green">VERIFIED</text>
+
+  <rect class="gate-box gate-2" x="634" y="112" width="438" height="30" rx="2"/>
+  <rect class="latch" x="634" y="112" width="4" height="30"/>
+  <text x="650" y="131" class="mono">02  EMPLOYEE ATTESTATION</text>
+  <text x="1058" y="131" text-anchor="end" class="mono-green">ATTESTED</text>
+
+  <rect class="gate-box gate-3" x="634" y="148" width="438" height="30" rx="2"/>
+  <rect class="latch" x="634" y="148" width="4" height="30"/>
+  <text x="650" y="167" class="mono">03  AI VOICE &amp; DEEPFAKE</text>
+  <text x="1058" y="167" text-anchor="end" class="mono-green">MATCH / REAL</text>
+
+  <rect class="gate-box gate-4" x="634" y="184" width="438" height="30" rx="2"/>
+  <rect class="latch" x="634" y="184" width="4" height="30"/>
+  <text x="650" y="203" class="mono">04  PURPOSE MANDATE</text>
+  <text x="1058" y="203" text-anchor="end" class="mono-green">AUTHORIZED</text>
+
+  <path class="wire" d="M 853 214 L 853 234"/>
+
+  <rect class="token-glow" x="634" y="236" width="438" height="42" rx="2" stroke-width="1.5"/>
+  <text x="650" y="262" class="mono-blue">TL-7K4M-9P2Q-3V8X-5N1R</text>
+  <text x="1058" y="262" text-anchor="end" class="mono-green">SHA-256 SEALED</text>
+</svg>

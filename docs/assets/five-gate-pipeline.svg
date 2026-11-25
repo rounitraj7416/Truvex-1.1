@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 190" width="100%" role="img" aria-labelledby="flow-title flow-desc">
+  <title id="flow-title">End-to-End Call Verification Pipeline</title>
+  <desc id="flow-desc">Animated schematic showing Company Approval, Employee Voice Enrollment, Pre-Call 5-Layer Check, Single-Use Trust ID, and Customer Verification.</desc>
+  <style>
+    .bg { fill: #FFFFFF; stroke: #141A21; stroke-width: 1.5; }
+    .node { fill: #F4F5F2; stroke: #141A21; stroke-width: 1.2; }
+    .node-accent { fill: #EBF0FF; stroke: #1649FF; stroke-width: 1.4; }
+    .node-green { fill: #E7F5EF; stroke: #0D6E4E; stroke-width: 1.4; }
+    .wire { stroke: #1649FF; stroke-width: 2; stroke-dasharray: 5 5; fill: none; animation: dashMove 1.4s linear infinite; }
+    .step-num { font: 700 11px "IBM Plex Mono", Consolas, monospace; fill: #1649FF; }
+    .step-title { font: 700 13px "IBM Plex Sans", "Segoe UI", sans-serif; fill: #141A21; }
+    .step-sub { font: 400 11px "IBM Plex Sans", "Segoe UI", sans-serif; fill: #525B66; }
+    @keyframes dashMove {
+      to { stroke-dashoffset: -20; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .wire { animation: none; }
+    }
+  </style>
+
+  <rect class="bg" x="0.75" y="0.75" width="1118.5" height="188.5" rx="3"/>
+
+  <line class="wire" x1="205" y1="95" x2="235" y2="95"/>
+  <line class="wire" x1="420" y1="95" x2="450" y2="95"/>
+  <line class="wire" x1="650" y1="95" x2="680" y2="95"/>
+  <line class="wire" x1="875" y1="95" x2="905" y2="95"/>
+
+  <rect class="node" x="22" y="42" width="183" height="106" rx="3"/>
+  <text x="36" y="64" class="step-num">STEP 01</text>
+  <text x="36" y="88" class="step-title">Company Approval</text>
+  <text x="36" y="108" class="step-sub">Registers as PENDING.</text>
+  <text x="36" y="124" class="step-sub">Admin sets VERIFIED.</text>
+
+  <rect class="node" x="235" y="42" width="185" height="106" rx="3"/>
+  <text x="249" y="64" class="step-num">STEP 02</text>
+  <text x="249" y="88" class="step-title">Voice Enrollment</text>
+  <text x="249" y="108" class="step-sub">Consented sample via</text>
+  <text x="249" y="124" class="step-sub">mic or file upload.</text>
+
+  <rect class="node-accent" x="450" y="42" width="200" height="106" rx="3"/>
+  <text x="464" y="64" class="step-num">STEP 03</text>
+  <text x="464" y="88" class="step-title">5-Layer Orchestrator</text>
+  <text x="464" y="108" class="step-sub">Eidos match + Aletheia</text>
+  <text x="464" y="124" class="step-sub">deepfake + purpose check.</text>
+
+  <rect class="node" x="680" y="42" width="195" height="106" rx="3"/>
+  <text x="694" y="64" class="step-num">STEP 04</text>
+  <text x="694" y="88" class="step-title">Single-Use Trust ID</text>
+  <text x="694" y="108" class="step-sub">TL-XXXX-XXXX-XXXX</text>
+  <text x="694" y="124" class="step-sub">Hashed, 5-min expiry.</text>
+
+  <rect class="node-green" x="905" y="42" width="193" height="106" rx="3"/>
+  <text x="919" y="64" class="step-num" style="fill:#0D6E4E;">STEP 05</text>
+  <text x="919" y="88" class="step-title">Customer Verify</text>
+  <text x="919" y="108" class="step-sub">Zero-login atomic check</text>
+  <text x="919" y="124" class="step-sub">+ suspicious reporting.</text>
+</svg>

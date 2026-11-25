@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Trust Layer — Business Communication Verification</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="/" class="brand">
+        <span class="brand-mark">TL</span>
+        <span>The Trust Layer</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#threats" class="nav-link">Threats</a>
+        <a href="#clearinghouse-track" class="nav-link">Five Gates</a>
+        <a href="/verify.html" class="nav-link">Verify a Call</a>
+        <a href="/company-register.html" class="nav-link">Register Company</a>
+        <a href="/login.html" class="nav-link">Sign In</a>
+        <a href="/docs" class="nav-link">API Docs</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 1. Editorial Hero + Live Clearinghouse Seal Specimen -->
+  <section class="landing-hero">
+    <div class="landing-hero-inner">
+      <div>
+        <p class="hero-kicker">Pre-call verification authority for high-trust institutions</p>
+        <h1 class="hero-display">Never trust a business call blindly. Verify it independently.</h1>
+        <p class="hero-lead">
+          Caller ID is trivial to forge and voice synthesis is cheap. Before an authorized employee reaches a customer, The Trust Layer clears five independent gates and mints a single-use Trust ID the customer can break and verify once.
+        </p>
+        <div class="hero-actions">
+          <a href="/verify.html" class="btn btn-primary">Verify a Trust ID</a>
+          <a href="/company-register.html" class="btn btn-secondary">Register Your Company</a>
+          <a href="/login.html" class="btn btn-secondary">Employee or Admin Sign In</a>
+        </div>
+      </div>
+
+      <aside class="specimen-sheet" aria-label="Live Trust ID lifecycle specimen">
+        <div class="specimen-top">
+          <span class="specimen-title">Clearinghouse Seal Specimen</span>
+          <span class="badge badge-green">5 Gates Passed</span>
+        </div>
+        <dl class="specimen-rows">
+          <div class="specimen-row">
+            <dt>Issuing Organization</dt>
+            <dd>Apex Meridian Bank</dd>
+          </div>
+          <div class="specimen-row">
+            <dt>Call Mandate</dt>
+            <dd>Fraud alert</dd>
+          </div>
+          <div class="specimen-row">
+            <dt>Session Expiry</dt>
+            <dd class="mono" id="hero-ttl-countdown">05:00 remaining</dd>
+          </div>
+          <div class="specimen-row">
+            <dt>Redemption Policy</dt>
+            <dd>Single-use atomic lock</dd>
+          </div>
+        </dl>
+        <div class="specimen-token-box">
+          <span class="specimen-token">TL-7K4M-9P2Q-3V8X-5N1R</span>
+          <span class="badge badge-blue">SHA-256 Stored</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- 2. Quiet Unboxed Threat Ledger -->
+  <section id="threats" class="ledger-section">
+    <div class="ledger-inner">
+      <div>
+        <h2 class="section-heading">Why voice and caller ID no longer prove identity</h2>
+        <p class="section-copy">
+          Telephone networks authenticate signaling trunks, not the person speaking or their mandate inside a company. Customers need proof independent of the phone call itself.
+        </p>
+      </div>
+
+      <ol class="ledger-list">
+        <li class="ledger-row">
+          <span class="ledger-num">01</span>
+          <div>
+            <h3>Company impersonation and number spoofing</h3>
+            <p>Fraudsters display legitimate bank or support phone numbers while social-engineering credentials or one-time passcodes.</p>
+          </div>
+        </li>
+        <li class="ledger-row">
+          <span class="ledger-num">02</span>
+          <div>
+            <h3>Real-time voice cloning and deepfake audio</h3>
+            <p>Seconds of public speech can be synthesized into a familiar executive or support voice that passes casual human listening.</p>
+          </div>
+        </li>
+        <li class="ledger-row">
+          <span class="ledger-num">03</span>
+          <div>
+            <h3>Unverified employee scope and stale access</h3>
+            <p>Customers have no way to check whether a caller is still employed, currently active, or authorized to initiate a high-risk request.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 3. SIGNATURE SET-PIECE — Pinned Scroll-Choreographed Five-Gate Clearinghouse -->
+  <section id="clearinghouse-track" class="clearinghouse-track" aria-label="Five-Gate Clearinghouse Verification Process">
+    <div class="clearinghouse-sticky">
+      <div class="clearinghouse-stage">
+        <div>
+          <div class="gate-counter" id="gate-counter">Gate 01 / 05</div>
+          <h2 class="gate-active-title" id="gate-active-title">Business verification gate</h2>
+          <p class="gate-active-desc" id="gate-active-desc">
+            Before an employee can initiate verification, Layer 1 checks that their company exists in SQLite and holds an explicit platform-administrator VERIFIED status.
+          </p>
+          <div class="gate-active-spec" id="gate-active-spec">
+            services/business_verification.py -> Company.verification_status == 'VERIFIED'
+          </div>
+          <div class="gate-rail-wrap">
+            <div class="gate-rail-track" aria-hidden="true">
+              <div class="gate-rail-fill" id="gate-rail-fill"></div>
+            </div>
+            <span class="gate-rail-hint">Scroll to advance through all five clearinghouse gates (or select a gate on the right).</span>
+          </div>
+        </div>
+
+        <div class="gate-rack">
+          <div class="gate-rack-header">
+            <span>Pre-Call Verification Sequence</span>
+            <span class="mono" style="font-size:0.76rem;color:var(--ink-muted);">verification_orchestrator.py</span>
+          </div>
+
+          <button type="button" class="gate-unit is-current" style="text-align:left;width:100%;">
+            <span class="gate-latch-bar" aria-hidden="true"></span>
+            <span class="gate-index">01</span>
+            <span>
+              <div class="gate-name">Business Verification</div>
+              <div class="gate-sub">Platform-approved company charter</div>
+            </span>
+            <span class="gate-state-pill">CHECKING</span>
+          </button>
+
+          <button type="button" class="gate-unit" style="text-align:left;width:100%;">
+            <span class="gate-latch-bar" aria-hidden="true"></span>
+            <span class="gate-index">02</span>
+            <span>
+              <div class="gate-name">Employee Identity</div>
+              <div class="gate-sub">Authenticated employer attestation</div>
+            </span>
+            <span class="gate-state-pill">QUEUED</span>
+          </button>
+
+          <button type="button" class="gate-unit" style="text-align:left;width:100%;">
+            <span class="gate-latch-bar" aria-hidden="true"></span>
+            <span class="gate-index">03</span>
+            <span>
+              <div class="gate-name">AI Voice &amp; Deepfake</div>
+              <div class="gate-sub">Isolated speaker &amp; synthesis check</div>
+            </span>
+            <span class="gate-state-pill">QUEUED</span>
+          </button>
+
+          <button type="button" class="gate-unit" style="text-align:left;width:100%;">
+            <span class="gate-latch-bar" aria-hidden="true"></span>
+            <span class="gate-index">04</span>
+            <span>
+              <div class="gate-name">Purpose Mandate</div>
+              <div class="gate-sub">Assigned call reason enforced</div>
+            </span>
+            <span class="gate-state-pill">QUEUED</span>
+          </button>
+
+          <button type="button" class="gate-unit" style="text-align:left;width:100%;">
+            <span class="gate-latch-bar" aria-hidden="true"></span>
+            <span class="gate-index">05</span>
+            <span>
+              <div class="gate-name">Single-Use Trust ID</div>
+              <div class="gate-sub">Hashed token, 5-minute TTL</div>
+            </span>
+            <span class="gate-state-pill">QUEUED</span>
+          </button>
+
+          <div class="gate-seal-footer" id="gate-seal-footer">
+            <span class="mono" style="font-size:0.82rem;font-weight:700;" id="gate-seal-status">Seal pending all 5 gates</span>
+            <a href="/verify.html" class="btn btn-primary btn-sm">Open Customer Verifier</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Security Guarantees & Honest MVP Scope -->
+  <section class="spec-section">
+    <div class="spec-inner">
+      <h2 class="section-heading">Security controls and honest boundaries</h2>
+      <p class="section-copy">
+        Every guarantee is enforced server-side in FastAPI and SQLite, with explicit boundaries documented up front.
+      </p>
+
+      <div class="spec-grid">
+        <div class="spec-cell">
+          <h3>Argon2id and SHA-256 token storage</h3>
+          <p>Passwords are salted and hashed with Argon2id. Issued Trust IDs and anonymous customer session keys are stored strictly as SHA-256 digests.</p>
+        </div>
+        <div class="spec-cell">
+          <h3>Atomic single-use redemption</h3>
+          <p>Public Trust ID lookup runs a conditional SQLite update as the first write statement so concurrent requests cannot redeem the same code twice.</p>
+        </div>
+        <div class="spec-cell">
+          <h3>Zero raw audio persistence</h3>
+          <p>Browser MediaRecorder clips are validated for MIME type and size in memory during enrollment and pre-call checks, never stored in the database.</p>
+        </div>
+        <div class="spec-cell">
+          <h3>Zero-account verification and escalation</h3>
+          <p>Customers verify calls without registering, keep viewing access via an HttpOnly cookie across page reloads, and can flag suspicious calls directly to admins.</p>
+        </div>
+      </div>
+
+      <div class="scope-strip">
+        <strong>MVP Transparency Notice:</strong> The Trust Layer is a pre-call verification and authorization platform. It does not intercept live cellular or PSTN carrier audio streams. Company verification reflects platform-admin review, employee identity is company-attested, and when <span class="mono">AI_PROVIDER=mock</span> is active, Layer 3 outputs deterministic simulation scores labeled <strong>DEMO MODE</strong> rather than real acoustic analysis.
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Closing Band -->
+  <section class="closing-band">
+    <div class="closing-inner">
+      <div>
+        <h2 class="section-heading" style="margin-bottom:0.4rem;">Verify an active call or onboard an organization</h2>
+        <p class="section-copy">Customers verify with a Trust ID and zero login. Companies start in pending review until approved by an administrator.</p>
+      </div>
+      <div class="hero-actions">
+        <a href="/verify.html" class="btn btn-primary">Verify a Trust ID</a>
+        <a href="/company-register.html" class="btn btn-secondary">Register Company</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>The Trust Layer, Pre-Call Communication Verification</span>
+      <span style="display:flex;gap:1.25rem;flex-wrap:wrap;"><a href="/verify.html">Public Verification</a><a href="/login.html">Portal Login</a><a href="/docs">OpenAPI Docs</a></span>
+    </div>
+  </footer>
+
+  <script src="/js/motion.js"></script>
+</body>
+</html>
