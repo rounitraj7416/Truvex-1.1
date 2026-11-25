@@ -2,6 +2,11 @@
 
 All notable implementation decisions, assumptions, and changes for **The Trust Layer** MVP are documented in this file.
 
+## [0.7.0] - 2026-11-25
+### Render Blueprint Deployment Support
+- Added [`render.yaml`](render.yaml) Blueprint configuration for deploying FastAPI + static frontend on Render (`pip install -r backend/requirements.txt`, idempotent `seed_demo.py` on boot, `/api/health` health check, `COOKIE_SECURE=true`, auto-generated `SECRET_KEY`).
+- Added `https://*.onrender.com` CORS origin regex support in [`backend/app/main.py`](backend/app/main.py).
+
 ## [0.6.0] - 2026-11-25
 ### Interactive & Animated README
 - Designed animated SVG architecture banners ([`docs/assets/trust-layer-banner.svg`](docs/assets/trust-layer-banner.svg) and [`docs/assets/five-gate-pipeline.svg`](docs/assets/five-gate-pipeline.svg)) with `prefers-reduced-motion` fallbacks.
